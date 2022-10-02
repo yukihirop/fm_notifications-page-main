@@ -65,7 +65,6 @@ const Notification = ({
                   (isMarkdown() ? (
                     <span className="font-bold text-sm ml-2">
                       <ReactMarkdown
-                        children={content || ""}
                         remarkPlugins={[remarkGfm]}
                         className="inline-block"
                         components={{
@@ -77,7 +76,7 @@ const Notification = ({
                             />
                           ),
                         }}
-                      />
+                    >{content || ''}</ReactMarkdown>
                     </span>
                   ) : (
                     <span className="font-bold text-sm ml-2">{content}</span>

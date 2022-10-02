@@ -4,16 +4,16 @@ import { INotification } from '../interfaces'
 
 const baseURL = process.env.VERCEL_URL ? process.env.VERCEL_URL : 'http://localhost:3000'
 
-export async function getStaticProps() {
-  const res = await fetch(`${baseURL}/api/notifications`)
-  const items: INotification[] = await res.json()
-  const unreadCount = items.filter(i => i.isUnread).length
+export async function getServerSideProps() {
+  const res = await fetch(`${baseURL}/api/notifications`);
+  const items: INotification[] = await res.json();
+  const unreadCount = items.filter((i) => i.isUnread).length;
   return {
     props: {
       items,
-      unreadCount
-    }
-  }
+      unreadCount,
+    },
+  };
 }
 
 const Home = (props: NotificationPageProps) => {

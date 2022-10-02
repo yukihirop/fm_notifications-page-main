@@ -4,7 +4,7 @@ import { INotification } from '../interfaces'
 
 export async function getServerSideProps() {
   const baseURL = process.env.NEXT_PUBLIC_VERCEL_URL
-    ? process.env.NEXT_PUBLIC_VERCEL_URL
+    ? `https://${process.env.NEXT_PUBLIC_VERCEL_URL}`
     : "http://localhost:3000";
   const res = await fetch(`${baseURL}/api/notifications`);
   const items: INotification[] = await res.json();

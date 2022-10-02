@@ -3,8 +3,8 @@ import { uuid } from "uuidv4";
 import { INotification, TActionType } from "../../interfaces";
 
 const icon = () => {
-  const id = Math.random()
-  return `https://picsum.photos/60/60?random=${id}`
+  const id = Math.random();
+  return `https://picsum.photos/60/60?random=${id}`;
 };
 const notifications: INotification[] = [
   {
@@ -25,7 +25,7 @@ const notifications: INotification[] = [
     createdAt: "5m ago",
     isUnread: true,
     message: {
-      actionType: TActionType.followedYou
+      actionType: TActionType.followedYou,
     },
   },
   {
@@ -36,19 +36,20 @@ const notifications: INotification[] = [
     isUnread: true,
     message: {
       actionType: TActionType.hasJoinedYourGroup,
-      content: 'Chess Club'
-    }
+      content: "Chess Club",
+    },
   },
   {
     id: uuid(),
     icon: icon(),
     name: "Rizky HasanuddIn",
-    createdAt: "5 day ago",
+    createdAt: "5day ago",
     isUnread: false,
     message: {
       actionType: TActionType.sentYouAPrivateMessage,
-      content: "Hello,thanks for setting up the Chess Club. I've been a member for a few weeks now and I'm already having of fun and improving my game."
-    }
+      content:
+        "Hello,thanks for setting up the Chess Club. I've been a member for a few weeks now and I'm already having of fun and improving my game.",
+    },
   },
   {
     id: uuid(),
@@ -58,8 +59,8 @@ const notifications: INotification[] = [
     isUnread: false,
     message: {
       actionType: TActionType.commentedOnYourPicture,
-      content: icon()
-    }
+      content: icon(),
+    },
   },
   {
     id: uuid(),
@@ -69,8 +70,8 @@ const notifications: INotification[] = [
     isUnread: false,
     message: {
       actionType: TActionType.reactToYourRecentPost,
-      content: "5 end-game strategies to increase your winrate"
-    }
+      content: "5 end-game strategies to increase your win rate",
+    },
   },
   {
     id: uuid(),
@@ -80,11 +81,14 @@ const notifications: INotification[] = [
     isUnread: false,
     message: {
       actionType: TActionType.leftTheGroup,
-      content: "Chess Club"
-    }
-  }
+      content: "Chess Club",
+    },
+  },
 ];
 
-export default function handler(req: NextApiRequest, res: NextApiResponse<INotification[]>) {
+export default function handler(
+  req: NextApiRequest,
+  res: NextApiResponse<INotification[]>
+) {
   res.status(200).json(notifications);
 }

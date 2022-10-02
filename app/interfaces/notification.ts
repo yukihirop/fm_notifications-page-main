@@ -1,3 +1,4 @@
+// formatted
 export const TActionType = <const>{
   reactToYourRecentPost: 'reacted to your recent post',
   followedYou: 'followed you',

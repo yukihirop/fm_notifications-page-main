@@ -2,6 +2,10 @@
 @tailwind components;
 @tailwind utilities;
 
+/* * {
+  border: solid 1px red;
+} */
+
 html,
 body {
   padding: 0;

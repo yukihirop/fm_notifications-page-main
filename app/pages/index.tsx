@@ -2,7 +2,7 @@ import Layout from '../components/layout'
 import NotificationPage, { Props as NotificationPageProps } from '../components/notification-page'
 import { INotification } from '../interfaces'
 
-const baseURL = process.env.VERCEL_URL ? process.env.VERCEL_URL : 'http://localhost:3000'
+const baseURL = process.env.NEXT_PUBLIC_VERCEL_URL ? process.env.NEXT_PUBLIC_VERCEL_URL : 'http://localhost:3000'
 
 export async function getServerSideProps() {
   const res = await fetch(`${baseURL}/api/notifications`);

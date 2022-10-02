@@ -8,6 +8,11 @@ export const TActionType = <const>{
   leftTheGroup: 'left the group'
 }
 
+export const TContentFormat = <const>{
+  plain: 'plain',
+  markdown: 'markdown'
+}
+
 export interface INotification {
   id: string;
   icon: string;
@@ -16,6 +21,7 @@ export interface INotification {
   isUnread: boolean
   message: {
     actionType: typeof TActionType[keyof typeof TActionType]
+    contentFormat: typeof TContentFormat[keyof typeof TContentFormat]
     content?: string
   }
 }

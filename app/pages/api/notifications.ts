@@ -1,6 +1,6 @@
 import { NextApiRequest, NextApiResponse } from "next";
 import { uuid } from "uuidv4";
-import { INotification, TActionType } from "../../interfaces";
+import { INotification, TActionType, TContentFormat } from "../../interfaces";
 
 const icon = () => {
   const id = Math.random();
@@ -15,6 +15,7 @@ const notifications: INotification[] = [
     isUnread: true,
     message: {
       actionType: TActionType.reactToYourRecentPost,
+      contentFormat: TContentFormat.plain,
       content: "My first tournament today!",
     },
   },
@@ -26,6 +27,7 @@ const notifications: INotification[] = [
     isUnread: true,
     message: {
       actionType: TActionType.followedYou,
+      contentFormat: TContentFormat.plain
     },
   },
   {
@@ -36,6 +38,7 @@ const notifications: INotification[] = [
     isUnread: true,
     message: {
       actionType: TActionType.hasJoinedYourGroup,
+      contentFormat: TContentFormat.markdown,
       content: "[Chess Club](https://www.chessclub.com/)",
     },
   },
@@ -47,6 +50,7 @@ const notifications: INotification[] = [
     isUnread: false,
     message: {
       actionType: TActionType.sentYouAPrivateMessage,
+      contentFormat: TContentFormat.plain,
       content:
         "Hello,thanks for setting up the Chess Club. I've been a member for a few weeks now and I'm already having of fun and improving my game.",
     },
@@ -59,6 +63,7 @@ const notifications: INotification[] = [
     isUnread: false,
     message: {
       actionType: TActionType.commentedOnYourPicture,
+      contentFormat: TContentFormat.plain,
       content: icon(),
     },
   },
@@ -70,6 +75,7 @@ const notifications: INotification[] = [
     isUnread: false,
     message: {
       actionType: TActionType.reactToYourRecentPost,
+      contentFormat: TContentFormat.plain,
       content: "5 end-game strategies to increase your win rate",
     },
   },
@@ -81,6 +87,7 @@ const notifications: INotification[] = [
     isUnread: false,
     message: {
       actionType: TActionType.leftTheGroup,
+      contentFormat: TContentFormat.markdown,
       content: "[Chess Club](https://www.chessclub.com/)",
     },
   },

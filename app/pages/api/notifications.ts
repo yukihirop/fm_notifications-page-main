@@ -22,7 +22,7 @@ const notifications: INotification[] = [
     id: uuid(),
     icon: icon(),
     name: "Angela Gray",
-    createdAt: "1m ago",
+    createdAt: "5m ago",
     isUnread: true,
     message: {
       actionType: TActionType.followedYou

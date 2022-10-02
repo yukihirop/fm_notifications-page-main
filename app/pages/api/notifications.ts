@@ -1,5 +1,5 @@
 import { NextApiRequest, NextApiResponse } from "next";
-import { uuid } from "uuidv4";
+import { v4 as uuid } from "uuid";
 import { INotification, TActionType, TContentFormat } from "../../interfaces";
 
 const icon = () => {

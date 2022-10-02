@@ -1,5 +1,5 @@
 import Notification from "./notification";
-import { INotification  } from "../interfaces";
+import { INotification } from "../interfaces";
 
 export type Props = {
   items: INotification[];
@@ -7,20 +7,28 @@ export type Props = {
 };
 
 const NotificationPage = ({ items, unreadCount }: Props) => (
-  <div className="flex justify-between items-start p-4 bg-[#ffffff]">
-    <h3 className="text-xl font-semibold text-gray-900">
-      <span>Notifications</span>
-      <button className="text-white bg-[#0a317b] font-medium rounded-lg text-sm p-2">
-        {unreadCount}
-      </button>
-      <div className="mt-2">
-        {items.map((item) => (
-          <div className="mb-2">
-            <Notification key={item.id} {...item} />
-          </div>
-        ))}
+  <div className="ip-4 bg-[#ffffff] rounded-lg p-6">
+    <div className="flex flex-row justify-between mb-6">
+      <h3 className="text-xl font-semibold text-gray-900">
+        <div className="flex flex-row">
+          <span className="font-bold text-[#1c202b]">Notifications</span>
+          <span className="text-white bg-[#0a317b] font-medium rounded-md text-sm px-2 h-5 ml-2 my-auto hover:cursor-pointer">
+            {unreadCount}
+          </span>
+        </div>
+      </h3>
+      <a
+        className="text-sm text-[#5e6778] hover:underline hover:cursor-pointer"
+        onClick={() => console.log("Mark all as read")}
+      >
+        Mark all as read
+      </a>
+    </div>
+    {items.map((item) => (
+      <div className="mb-2">
+        <Notification key={item.id} {...item} />
       </div>
-    </h3>
+    ))}
   </div>
 );
 

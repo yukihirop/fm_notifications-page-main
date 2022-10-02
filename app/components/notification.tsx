@@ -16,7 +16,7 @@ const Notification = ({
   const isDisplayContentInline = () => {
     const { sentYouAPrivateMessage, commentedOnYourPicture } = TActionType;
     return (
-      content != "" &&
+      content != undefined &&
       ![sentYouAPrivateMessage, commentedOnYourPicture].includes(
         actionType as any
       )
@@ -24,18 +24,18 @@ const Notification = ({
   };
 
   const isDisplayPicureInline = () => {
-    return content != "" && actionType === TActionType.commentedOnYourPicture;
+    return content != undefined && actionType === TActionType.commentedOnYourPicture;
   };
 
   const isDisplayPrivateMessage = () => {
-    return content != '' && actionType === TActionType.sentYouAPrivateMessage
+    return content != undefined && actionType === TActionType.sentYouAPrivateMessage
   }
 
   return (
     <div
-      className={`flex flex-row justify-between ${
-        isUnread && "bg-[#F7FAFD] rounded-md"
-      }`}
+      className={`flex flex-row justify-between rounded-md ${
+        isUnread && "bg-[#F7FAFD] shadow-sm"
+      } hover:bg-[#e5effa] hover:cursor-pointer`}
     >
       <div className="flex flex-row w-full">
         {/* profile and main */}
@@ -64,8 +64,8 @@ const Notification = ({
               </p>
               {/* private message */}
               {isDisplayPrivateMessage() && (
-                <div className="my-2 p-2 border-solid border-[0.1px] border-[#dde7ee] rounded-sm">
-                  <p className="whitespace-normal text-xs font-normal">
+                <div className="my-2 p-3 border-solid border-[0.1px] border-[#dde7ee] rounded-sm">
+                  <p className="whitespace-normal text-[14px] font-normal">
                     {content}
                   </p>
                 </div>

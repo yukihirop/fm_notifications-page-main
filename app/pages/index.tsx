@@ -17,11 +17,11 @@ export async function getStaticProps() {
 const Home = (props: NotificationPageProps) => {
   return (
     <Layout>
-      <div className="w-[734px]">
+      <div className="w-[680px] my-auto">
         <NotificationPage {...props} />
       </div>
     </Layout>
-  )
+  );
 }
 
 export default Home

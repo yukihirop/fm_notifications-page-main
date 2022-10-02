@@ -11,7 +11,7 @@ const NotificationPage = ({ items, unreadCount }: Props) => (
     <div className="flex flex-row justify-between mb-6">
       <h3 className="text-xl font-semibold text-gray-900">
         <div className="flex flex-row">
-          <span className="font-bold text-[#1c202b]">Notifications</span>
+          <span className="font-bold text-[color:var(--very-dark-blue)]">Notifications</span>
           <span className="text-white bg-[#0a317b] font-medium rounded-md text-sm px-2 h-5 ml-2 my-auto hover:cursor-pointer">
             {unreadCount}
           </span>

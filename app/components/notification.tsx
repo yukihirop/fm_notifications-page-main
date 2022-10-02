@@ -1,5 +1,7 @@
 import Image from "next/image";
 import { INotification, TActionType } from "../interfaces";
+import ReactMarkdown from 'react-markdown'
+import remarkGfm from 'remark-gfm'
 
 type Props = INotification;
 
@@ -31,6 +33,10 @@ const Notification = ({
     return content != undefined && actionType === TActionType.sentYouAPrivateMessage
   }
 
+  const isMarkdown = () => {
+    return content != undefined && actionType === TActionType.hasJoinedYourGroup
+  }
+
   return (
     <div
       className={`flex flex-row justify-between rounded-md ${
@@ -52,7 +58,11 @@ const Notification = ({
                 <strong className="font-bold text-sm">{name}</strong>
                 <span className="font-normal text-sm ml-2">{actionType}</span>
                 {isDisplayContentInline() && (
-                  <span className="font-bold text-sm ml-2">{content}</span>
+                  <span className="font-bold text-sm ml-2">
+                    <ReactMarkdown children={content || ''} remarkPlugins={[remarkGfm]} className="inline-block" components={{
+                      a: ({ node, ...props }) => <a className="hover:underline text-[color:var(--blue)]" {...props} target={"_blank"} />
+                    }}/>
+                  </span>
                 )}
                 {isUnread && (
                   <div className="bg-[#f65351] rounded-full w-2 h-2 ml-1.5 inline-block" />

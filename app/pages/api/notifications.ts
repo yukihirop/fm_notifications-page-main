@@ -36,7 +36,7 @@ const notifications: INotification[] = [
     isUnread: true,
     message: {
       actionType: TActionType.hasJoinedYourGroup,
-      content: "Chess Club",
+      content: "[Chess Club](https://www.chessclub.com/)",
     },
   },
   {
@@ -81,7 +81,7 @@ const notifications: INotification[] = [
     isUnread: false,
     message: {
       actionType: TActionType.leftTheGroup,
-      content: "Chess Club",
+      content: "[Chess Club](https://www.chessclub.com/)",
     },
   },
 ];
